@@ -14,13 +14,7 @@ def normalise_group_id(group_id):
     Group IDs can be specified with or without leading and trailing '/'s. We
     want a leading '/' but not a trailing one.
     """
-    if not group_id.startswith('/'):
-        group_id = '/' + group_id
-
-    if group_id.endswith('/') and group_id != '/':
-        group_id = group_id[:-1]
-
-    return group_id
+    return '/' + group_id.strip('/')
 
 
 def normalise_app_id(app_id, group_id):
@@ -32,8 +26,7 @@ def normalise_app_id(app_id, group_id):
     :param: group_id
     Expects an already normalised group ID.
     """
-    if app_id.endswith('/'):
-        app_id = app_id[:-1]
+    app_id = app_id.rstrip('/')
 
     if not app_id.startswith(group_id):
         if group_id != '/':
