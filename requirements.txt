@@ -1,2 +1,2 @@
-Twisted
-treq
+# Our dependencies are all specified in setup.py.
+-e .
