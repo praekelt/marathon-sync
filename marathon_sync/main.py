@@ -3,7 +3,7 @@ import treq
 
 from twisted.python import log
 from twisted.web import client
-# Twisted's fault HTTP11 client factory is way too verbose
+# Twisted's default HTTP11 client factory is way too verbose
 client._HTTP11ClientFactory.noisy = False
 from twisted.internet.defer import (
     gatherResults, inlineCallbacks, returnValue)
